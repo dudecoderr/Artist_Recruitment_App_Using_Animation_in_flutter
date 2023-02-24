@@ -31,6 +31,27 @@ dependencies:
   flutter:
     sdk: flutter
 
+  ##====================Screen utils============##
+  flutter_screenutil: ^5.6.1
+
+  ##====================Bottomnav bar============##
+  floating_bottom_navigation_bar: ^1.5.2
+
+ ###=============== SWIPE CARD ============##
+  swipe_cards: ^1.0.0
+  swipeable_card_stack: ^0.0.5
+
+  ##==================== VIDEO PLAYER=======##
+  video_player: ^2.4.10
+
+###==================LOTTIE ==================###
+  lottie: ^2.2.0
+
+  ###==================GET ==================###
+
+  get: ^4.6.5
+  ###==================FAVOURITE BUTTON ==================###
+  favorite_button: ^0.0.4
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -62,6 +83,8 @@ flutter:
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
+  assets:
+    - assets/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -85,6 +108,12 @@ flutter:
   #       - asset: fonts/TrajanPro.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
+  fonts:
+    - family: TT-Norms-Fonts
+      fonts:
+        - asset: fonts/TT-Norms/TT Norms/TTNormsPro-Light.ttf
+        - asset: fonts/TT-Norms/TT Norms/TTNormsPro-Bold.ttf
+          weight: 700
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

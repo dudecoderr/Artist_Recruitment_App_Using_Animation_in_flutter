@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:swipe_cards/swipe_cards.dart';
@@ -129,86 +130,97 @@ class _DiscoverPageState extends State<DiscoverPage> with TickerProviderStateMix
                   ),
 
                   ///===================  card code start ======================
-                  Container(
-                    padding: const EdgeInsets.only(top: 30),
-                    child: _isNoItem
-                        ? Container(
-                      height: 350.h,
-                      width: 500.w,
-                      child: const Center(
-                        child: Text(
-                          'No Item',
-                          style: TextStyle(color: Colors.white),
+                  AnimationLimiter(
+                    child: Column(
+                      children: AnimationConfiguration.toStaggeredList(
+                        duration: const Duration(seconds: 2),
+                        childAnimationBuilder: (widget) => SlideAnimation(
+                          verticalOffset: MediaQuery.of(context).size.width / 2,
+                          child: FadeInAnimation(child: widget),
                         ),
-                      ),
-                    )
-                        : Stack(
-                      alignment: Alignment.bottomCenter,
-                      children: [
-                        SizedBox(
-                          height: 400.h,
-                          width: 500.w,
-                          child: SwipeCards(
-                            upSwipeAllowed: true,
-                            itemBuilder: (BuildContext context, int index) {
-                              return InkWell(
-                                onTap: () {
-                                  // Navigator.push(
-                                  //     context,
-                                  //     MaterialPageRoute(
-                                  //         builder: (context) =>
-                                  //             DetilsScreen()));
-                                },
-                                child: VideoWidget(con: connn),
-                              );
-                            },
-                            matchEngine: _matchEngine,
-                            itemChanged: (p0, p1) {
-                              connn = Content(contents[p1].title, contents[p1].url);
-                            },
-                            onStackFinished: () {
-                              print('onStackFinished');
-                              setState(() {
-                                _isNoItem = true;
-                              });
-                            },
-                          ),
-                        ),
-                        //OKK  READY
-                        Positioned(
-                            bottom: 200,
-                            right: -5,
-                            child: Obx(() {
-                              return InkWell(
-                                onTap: isLike.value == false ? () {
-                                  isLike.value = true;
-                                  animationController!.reset();
-                                } : null,
-                                child: Container(
-                                  padding: EdgeInsets.only(left: 10, right: 10, top: 20),
-                                  height: 70.h,
-                                  width: 60.w,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(80),
-                                    color: Colors.grey.shade100,
-                                  ),
-                                  child: Text("❤", style: TextStyle(fontSize: 35)),
-                                ),
-                              );
-                            })),
-                        Positioned(
-                            bottom: 200,
-                            left: -7,
-                            child: Container(
-                              height: 70.h,
-                              width: 60.w,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(80),
-                                color: Colors.grey.shade100,
+                        children:[Container(
+                          padding: const EdgeInsets.only(top: 30),
+                          child: _isNoItem
+                              ? Container(
+                            height: 350.h,
+                            width: 500.w,
+                            child: const Center(
+                              child: Text(
+                                'No Item',
+                                style: TextStyle(color: Colors.white),
                               ),
-                              child: Icon(Icons.close_rounded, color: Colors.red, size: 40),
-                            ))
-                      ],
+                            ),
+                          )
+                              : Stack(
+                            alignment: Alignment.bottomCenter,
+                            children: [
+                              SizedBox(
+                                height: 400.h,
+                                width: 500.w,
+                                child: SwipeCards(
+                                  upSwipeAllowed: true,
+                                  itemBuilder: (BuildContext context, int index) {
+                                    return InkWell(
+                                      onTap: () {
+                                        // Navigator.push(
+                                        //     context,
+                                        //     MaterialPageRoute(
+                                        //         builder: (context) =>
+                                        //             DetilsScreen()));
+                                      },
+                                      child: VideoWidget(con: connn),
+                                    );
+                                  },
+                                  matchEngine: _matchEngine,
+                                  itemChanged: (p0, p1) {
+                                    connn = Content(contents[p1].title, contents[p1].url);
+                                  },
+                                  onStackFinished: () {
+                                    print('onStackFinished');
+                                    setState(() {
+                                      _isNoItem = true;
+                                    });
+                                  },
+                                ),
+                              ),
+                              //OKK  READY
+                              Positioned(
+                                  bottom: 200,
+                                  right: -5,
+                                  child: Obx(() {
+                                    return InkWell(
+                                      onTap: isLike.value == false ? () {
+                                        isLike.value = true;
+                                        animationController!.reset();
+                                      } : null,
+                                      child: Container(
+                                        padding: EdgeInsets.only(left: 15, right: 10, top: 25),
+                                        height: 70.h,
+                                        width: 60.w,
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(80),
+                                          color: Colors.grey.shade100,
+                                        ),
+                                        child: Text("❤", style: TextStyle(fontSize: 30)),
+                                      ),
+                                    );
+                                  })),
+                              Positioned(
+                                  bottom: 200,
+                                  left: -7,
+                                  child: Container(
+                                    height: 70.h,
+                                    width: 60.w,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(80),
+                                      color: Colors.grey.shade100,
+                                    ),
+                                    child: Icon(Icons.close_rounded, color: Colors.red, size: 40),
+                                  ))
+                            ],
+                          ),
+                        ),],
+                      ),
                     ),
                   ),
                 ],

@@ -123,11 +123,11 @@ class MusicList extends StatelessWidget {
                         Container(
                           height: 20,
                           width: 50,
-                          padding: const EdgeInsets.only(top: 2, left: 13, right: 10, bottom: 2),
+                          padding: const EdgeInsets.only(top: 1, left: 13, right: 10, bottom: 2),
                           decoration: BoxDecoration(color: kGreenColor, borderRadius: BorderRadius.circular(20)),
                           child: Text(
                             top,
-                            style: TextStyle(fontSize: 12.sp, fontFamily: "TT-Norms-Fonts", fontWeight: FontWeight.w700, color: kDarkGreenColor),
+                            style: TextStyle(fontSize: 11.sp, fontFamily: "TT-Norms-Fonts", fontWeight: FontWeight.w700, color: kDarkGreenColor),
                           ),
                         )
                       ],
@@ -154,7 +154,7 @@ class MusicList extends StatelessWidget {
                 Container(
                   height: 23.h,
                   width: 100.w,
-                  padding:  EdgeInsets.only(top: 5.h, left: 13, right: 10, bottom: 2),
+                  padding:  EdgeInsets.only(top: 5.h, left: 8, right:5, bottom: 2),
                   decoration: BoxDecoration(color:Colors.grey.shade300,borderRadius: BorderRadius.circular(20)),
                   child: Text(
                     desc!,
@@ -163,15 +163,15 @@ class MusicList extends StatelessWidget {
                 ),
                 SizedBox(width: 5.w,),Container(
                   height: 26,
-                  width: 95,
-                  padding: const EdgeInsets.only(top: 5, left: 20 , right: 10, bottom: 2),
+                  width: 100,
+                  padding: const EdgeInsets.only(top: 4, left: 10 , right: 10, bottom: 2),
                   decoration: BoxDecoration(color: Colors.grey.shade300, borderRadius: BorderRadius.circular(20)),
                   child: Text(
                     ownTools,
                     style: TextStyle(fontSize: 12.sp, fontFamily: "TT-Norms-Fonts", fontWeight: FontWeight.w700, color: kGreyColor),
                   ),
                 ),
-                SizedBox(width: 35.w),
+                SizedBox(width: 33.w),
                 Text(
                   hours,
                   style: TextStyle(fontSize: 15.sp, fontFamily: "TT-Norms-Fonts", fontWeight: FontWeight.w700, color: kGreyColor),

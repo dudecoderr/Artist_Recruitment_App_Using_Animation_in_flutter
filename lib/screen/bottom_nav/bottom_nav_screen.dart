@@ -4,8 +4,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:recruitment_flutter_ui/constant/color_constant.dart';
 import '../discover_specialist.dart';
 import '../home_screen.dart';
+
 class BottomNavigationScreen extends StatefulWidget {
-  const BottomNavigationScreen({Key? key}) : super(key: key);
+  const BottomNavigationScreen({ Key? key}) : super(key: key);
 
   @override
   State<BottomNavigationScreen> createState() => _BottomNavigationScreenState();
@@ -13,19 +14,13 @@ class BottomNavigationScreen extends StatefulWidget {
 
 class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
   int current_index = 0;
-  final List<Widget> pages = [
-    const HomePage(),
-    const DiscoverPage(),
-  ];
+
 
   @override
-  Widget build(BuildContext context) {
+  Widget build( BuildContext context) {
     return Scaffold(
       extendBody: true,
-      body: IndexedStack(
-        index: current_index,
-        children: pages,
-      ),
+
       bottomNavigationBar: FloatingNavbar(
         backgroundColor: kBlackColor,
         padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
@@ -61,6 +56,16 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
           ),
         ],
       ),
+      body: Navigator(
+        onGenerateRoute: (settings) {
+          Widget page = HomePage();
+          if (settings.name == 'page2') page = DiscoverPage();
+          return MaterialPageRoute(builder: (_) => page);
+        },
+      ),
+
     );
+
+
   }
 }

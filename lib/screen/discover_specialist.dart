@@ -184,39 +184,7 @@ class _DiscoverPageState extends State<DiscoverPage> with TickerProviderStateMix
                                 ),
                               ),
                               //OKK  READY
-                              Positioned(
-                                  bottom: 200,
-                                  right: -5,
-                                  child: Obx(() {
-                                    return InkWell(
-                                      onTap: isLike.value == false ? () {
-                                        isLike.value = true;
-                                        animationController!.reset();
-                                      } : null,
-                                      child: Container(
-                                        padding: EdgeInsets.only(left: 15, right: 10, top: 25),
-                                        height: 70.h,
-                                        width: 60.w,
-                                        decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(80),
-                                          color: Colors.grey.shade100,
-                                        ),
-                                        child: Text("❤", style: TextStyle(fontSize: 30)),
-                                      ),
-                                    );
-                                  })),
-                              Positioned(
-                                  bottom: 200,
-                                  left: -7,
-                                  child: Container(
-                                    height: 70.h,
-                                    width: 60.w,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(80),
-                                      color: Colors.grey.shade100,
-                                    ),
-                                    child: Icon(Icons.close_rounded, color: Colors.red, size: 40),
-                                  ))
+
                             ],
                           ),
                         ),],
@@ -243,6 +211,40 @@ class _DiscoverPageState extends State<DiscoverPage> with TickerProviderStateMix
                 ),
               ) : const SizedBox.shrink();
             }),
+            Positioned(
+                bottom:320,
+                right: -50,
+                child: Obx(() {
+                  return InkWell(
+                    onTap: isLike.value == false ? () {
+                      isLike.value = true;
+                      animationController!.reset();
+                    } : null,
+                    child: SizedBox(
+                      height: 80,width: 150,
+                      child: CircleAvatar(
+
+                        child: Padding(
+                          padding: const EdgeInsets.only(right : 10),
+                          child: Icon(Icons.favorite,size: 40,color: Colors.red),
+                        ),
+                      ),
+                    )
+                  );
+                })),
+            Positioned(
+                bottom: 320,
+                left: -50,
+                child: SizedBox(
+                  height: 80,width: 150,
+                  child: CircleAvatar(
+
+               child: Padding(
+                 padding: const EdgeInsets.only(left: 10),
+                 child: Icon(Icons.close_rounded,size: 40,color: Colors.red),
+               ),
+                  ),
+                )),
           ],
         ),
       ),
@@ -328,9 +330,9 @@ class _VideoWidgetState extends State<VideoWidget> {
               Container(
                 height: 40.h,
                 width: 100.w,
-                padding: EdgeInsets.only(left: 10, right: 10, top: 10),
+                padding: EdgeInsets.only(left: 12, right: 10, top: 12),
                 decoration: BoxDecoration(borderRadius: BorderRadius.circular(20.r), color: Colors.white24),
-                child: Text(hours, style: TextStyle(color: kWhiteColor, fontFamily: "TT-Norms-Fonts", fontSize: 18.sp, fontWeight: FontWeight.w500)),
+                child: Text(hours, style: TextStyle(color: kWhiteColor, fontFamily: "TT-Norms-Fonts", fontSize: 16.sp, fontWeight: FontWeight.w500)),
               )
             ],
           ),

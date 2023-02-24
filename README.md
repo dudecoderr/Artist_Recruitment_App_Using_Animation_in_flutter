@@ -1,16 +1,27 @@
 # recruitment_flutter_ui
 
-A new Flutter project.
+#### Github Link : https://github.com/dudecoderr/Artist_Recruitment_App_Using_Animation_in_flutter.git
 
-## Getting Started
+                               
+# Changelog
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+Note: _**last updated February 2023 configured project to latest flutter version 3.7.3**_
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<p align="center">
+<img src="" width="200%">
+</p>
+
+**Packages used:**
+
+ - flutter_screenutil: ^5.6.1
+ - floating_bottom_navigation_bar: ^1.5.2
+ - flutter_staggered_animations: ^1.1.1
+ - favorite_button: ^0.0.4
+ - get: ^4.6.5
+ - lottie: ^2.2.0
+ - video_player: ^2.4.10
+ - swipe_cards: ^1.0.0
+ - swipeable_card_stack: ^0.0.5
+  

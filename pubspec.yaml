@@ -53,9 +53,9 @@ dependencies:
   favorite_button: ^0.0.4
 
   ###==================staggered animations ==================###
-
   flutter_staggered_animations: ^1.1.1
 
+###==========================flutter svg =======================##
   flutter_svg: ^2.0.2
 
   # The following adds the Cupertino Icons font to your application.

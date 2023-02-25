@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:swipe_cards/swipe_cards.dart';
@@ -236,13 +235,17 @@ class _DiscoverPageState extends State<DiscoverPage> with TickerProviderStateMix
                 })),
       const Positioned(
                 bottom: 320,
-                left: -10,
-                child: CircleAvatar(
-                  child: Padding(
-                    padding: EdgeInsets.only(left: 10),
-                    child: Icon(Icons.close_rounded, size: 40, color: Colors.red),
-                  ),
+                left: -50 ,
+                child: SizedBox(
+                  height: 80,
+                  width: 150,
+                  child: CircleAvatar(
+                    child: Padding(
+                      padding: EdgeInsets.only(left: 10),
+                      child: Icon(Icons.close_rounded, size: 40, color: Colors.red),
+                    ),
               ),
+                ),
       ),
 
           ],
@@ -341,9 +344,3 @@ class _VideoWidgetState extends State<VideoWidget> {
     );
   }
 }
-// CircleAvatar(
-// child: Padding(
-// padding: const EdgeInsets.only(left: 10),
-// child: Icon(Icons.close_rounded, size: 40, color: Colors.red),
-// ),
-// ),

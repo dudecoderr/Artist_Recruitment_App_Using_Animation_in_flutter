@@ -24,4 +24,4 @@ Note: _**last updated February 2023 configured project to latest flutter version
  - video_player: ^2.4.10
  - swipe_cards: ^1.0.0
  - swipeable_card_stack: ^0.0.5
-  
+ - flutter_svg: ^2.0.2

@@ -10,7 +10,7 @@ Note: _**last updated February 2023 configured project to latest flutter version
 
 
 <p align="center">
-<img src="" width="200%">
+<img src="https://raw.githubusercontent.com/dudecoderr/Artist_Recruitment_App_Using_Animation_in_flutter/master/assets/Readme%20.jpg" width="200%">
 </p>
 
 **Packages used:**
@@ -24,4 +24,4 @@ Note: _**last updated February 2023 configured project to latest flutter version
  - video_player: ^2.4.10
  - swipe_cards: ^1.0.0
  - swipeable_card_stack: ^0.0.5
-  
+ - flutter_svg: ^2.0.2

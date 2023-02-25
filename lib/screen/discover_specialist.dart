@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:swipe_cards/swipe_cards.dart';
@@ -24,7 +25,6 @@ class _DiscoverPageState extends State<DiscoverPage> with TickerProviderStateMix
   AnimationController? animationController;
 
   RxBool isLike = false.obs;
-
 
   ///============ initstate ==========================
 
@@ -62,6 +62,9 @@ class _DiscoverPageState extends State<DiscoverPage> with TickerProviderStateMix
   }
 
   ///============ initstate ==========================
+  RxDouble height = 80.0.obs;
+  RxDouble width = 80.0.obs;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -134,60 +137,58 @@ class _DiscoverPageState extends State<DiscoverPage> with TickerProviderStateMix
                     child: Column(
                       children: AnimationConfiguration.toStaggeredList(
                         duration: const Duration(seconds: 2),
-                        childAnimationBuilder: (widget) => SlideAnimation(
-                          verticalOffset: MediaQuery.of(context).size.width / 2,
-                          child: FadeInAnimation(child: widget),
-                        ),
-                        children:[Container(
-                          padding: const EdgeInsets.only(top: 30),
-                          child: _isNoItem
-                              ? Container(
-                            height: 350.h,
-                            width: 500.w,
-                            child: const Center(
-                              child: Text(
-                                'No Item',
-                                style: TextStyle(color: Colors.white),
-                              ),
+                        childAnimationBuilder: (widget) =>
+                            SlideAnimation(
+                              verticalOffset: MediaQuery
+                                  .of(context)
+                                  .size
+                                  .width / 2,
+                              child: FadeInAnimation(child: widget),
                             ),
-                          )
-                              : Stack(
-                            alignment: Alignment.bottomCenter,
-                            children: [
-                              SizedBox(
-                                height: 400.h,
-                                width: 500.w,
-                                child: SwipeCards(
-                                  upSwipeAllowed: true,
-                                  itemBuilder: (BuildContext context, int index) {
-                                    return InkWell(
-                                      onTap: () {
-                                        // Navigator.push(
-                                        //     context,
-                                        //     MaterialPageRoute(
-                                        //         builder: (context) =>
-                                        //             DetilsScreen()));
-                                      },
-                                      child: VideoWidget(con: connn),
-                                    );
-                                  },
-                                  matchEngine: _matchEngine,
-                                  itemChanged: (p0, p1) {
-                                    connn = Content(contents[p1].title, contents[p1].url);
-                                  },
-                                  onStackFinished: () {
-                                    print('onStackFinished');
-                                    setState(() {
-                                      _isNoItem = true;
-                                    });
-                                  },
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.only(top: 30),
+                            child: _isNoItem
+                                ? Container(
+                              height: 350.h,
+                              width: 500.w,
+                              child: const Center(
+                                child: Text(
+                                  'No Item',
+                                  style: TextStyle(color: Colors.white),
                                 ),
                               ),
-                              //OKK  READY
-
-                            ],
+                            )
+                                : Stack(
+                              alignment: Alignment.bottomCenter,
+                              children: [
+                                SizedBox(
+                                  height: 400.h,
+                                  width: 500.w,
+                                  child: SwipeCards(
+                                    upSwipeAllowed: true,
+                                    itemBuilder: (BuildContext context, int index) {
+                                      return InkWell(
+                                        onTap: () {},
+                                        child: VideoWidget(con: connn),
+                                      );
+                                    },
+                                    matchEngine: _matchEngine,
+                                    itemChanged: (p0, p1) {
+                                      connn = Content(contents[p1].title, contents[p1].url);
+                                    },
+                                    onStackFinished: () {
+                                      print('onStackFinished');
+                                      setState(() {
+                                        _isNoItem = true;
+                                      });
+                                    },
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
-                        ),],
+                        ],
                       ),
                     ),
                   ),
@@ -196,10 +197,10 @@ class _DiscoverPageState extends State<DiscoverPage> with TickerProviderStateMix
             ),
             Obx(() {
               print("Listener Value After Tap :: OBX ${isLike.value}");
-              return isLike.value ? Positioned(
+              return isLike.value
+                  ? Positioned(
                 bottom: -100,
-                child: Lottie.asset(
-                    "assets/91069-like.json", controller: animationController,
+                child: Lottie.asset("assets/91069-like.json", controller: animationController,
                     height: 650,
                     width: 250,
                     fit: BoxFit.fill,
@@ -207,44 +208,43 @@ class _DiscoverPageState extends State<DiscoverPage> with TickerProviderStateMix
                       animationController!
                         ..duration = composition.duration
                         ..forward().whenComplete(() {});
-                    }
-                ),
-              ) : const SizedBox.shrink();
+                    }),
+              )
+                  : const SizedBox.shrink();
             }),
             Positioned(
-                bottom:320,
+                bottom: 320,
                 right: -50,
                 child: Obx(() {
                   return InkWell(
-                    onTap: isLike.value == false ? () {
-                      isLike.value = true;
-                      animationController!.reset();
-                    } : null,
-                    child: SizedBox(
-                      height: 80,width: 150,
-                      child: CircleAvatar(
-
-                        child: Padding(
-                          padding: const EdgeInsets.only(right : 10),
-                          child: Icon(Icons.favorite,size: 40,color: Colors.red),
+                      onTap: isLike.value == false
+                          ? () {
+                        isLike.value = true;
+                        animationController!.reset();
+                      }
+                          : null,
+                      child: SizedBox(
+                        height: 80,
+                        width: 150,
+                        child: CircleAvatar(
+                          child: Padding(
+                            padding: const EdgeInsets.only(right: 10),
+                            child: Icon(Icons.favorite, size: 40, color: Colors.red),
+                          ),
                         ),
-                      ),
-                    )
-                  );
+                      ));
                 })),
-            Positioned(
+      const Positioned(
                 bottom: 320,
-                left: -50,
-                child: SizedBox(
-                  height: 80,width: 150,
-                  child: CircleAvatar(
-
-               child: Padding(
-                 padding: const EdgeInsets.only(left: 10),
-                 child: Icon(Icons.close_rounded,size: 40,color: Colors.red),
-               ),
+                left: -10,
+                child: CircleAvatar(
+                  child: Padding(
+                    padding: EdgeInsets.only(left: 10),
+                    child: Icon(Icons.close_rounded, size: 40, color: Colors.red),
                   ),
-                )),
+              ),
+      ),
+
           ],
         ),
       ),
@@ -341,3 +341,9 @@ class _VideoWidgetState extends State<VideoWidget> {
     );
   }
 }
+// CircleAvatar(
+// child: Padding(
+// padding: const EdgeInsets.only(left: 10),
+// child: Icon(Icons.close_rounded, size: 40, color: Colors.red),
+// ),
+// ),
